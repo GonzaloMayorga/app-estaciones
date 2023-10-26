@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-	let chipid = document.querySelector("#chipid").innerHTML;
-=======
 let chipid = document.querySelector("#chipid").innerHTML;
->>>>>>> 7cb2211 (App-estacion ahora tiene un funcionamiento de tipo MVC)
 let myChart = null;
 const MAX_DATOS = 7;
 const INTERVAL_REFRESH = 5000;

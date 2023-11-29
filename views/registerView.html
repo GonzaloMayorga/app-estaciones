@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register App estacion</title>
+	<link rel="stylesheet" href="./static/css/login.css">
+</head>
+<body>
+	
+	<form method="POST">
+		{{RESULT_REGISTER}}
+		<div class="formulario">
+		<input type="email" name="email" placeholder="email">
+		<input type="password" name="pass" placeholder="contraseña">
+		<input type="password" name="confirmPass" placeholder="contraseña1">
+		<input type="submit" name="btn" value="Acceder">
+		<a href="recovery">¿Olvidaste tu contraseña?</a>
+		<a href="login">¿Ya tienes cuenta? Inicia Sesion</a>
+		</div>
+	</form>
+	
+</body>
+</html>

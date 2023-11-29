@@ -1,4 +1,5 @@
 <?php 
+<<<<<<< HEAD
 	session_start();
 	include 'env.php';
 	include 'lib/chess.php';
@@ -9,6 +10,12 @@
 	include 'lib/Mailer/src/SMTP.php';
 	include 'lib/Mailer/src/Exception.php';
 	
+=======
+
+	include 'lib/chess.php';
+	include 'env.php';
+
+>>>>>>> 7cb22113204c5abd52be4282efb2abc19374cc86
 	$_SECTION = explode("/", $_SERVER["REQUEST_URI"]);
 
 	unset($_SECTION[0]);
@@ -27,6 +34,7 @@
 		}
 		
 	}
+<<<<<<< HEAD
 
 	if(isset($_SESSION[APP_NAME])){
 		if($section=='landing' || $section=='login' || $section=='register' || $section=='validate' || $section=='recovery' || $section=='reset'){
@@ -38,6 +46,8 @@
 			header('Location: https://mattprofe.com.ar/alumno/3897/app-estacion/login');
 		}
 	}
+=======
+>>>>>>> 7cb22113204c5abd52be4282efb2abc19374cc86
 	
 	//var_dump($section);
 	include "controllers/{$section}Controller.php";

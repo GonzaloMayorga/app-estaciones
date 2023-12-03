@@ -28,6 +28,7 @@
 				$this->email = $email;
 				// query que busca el email
 				$this->password = $row[0]["contraseña"];	
+ 			
 			}
 		}
 
@@ -169,6 +170,7 @@
 	  				return null;
 	  			}
 		}
+
 	  	public function token(){
 	  			$sql = "SELECT `token` FROM `app-estacionUser` WHERE email = '$this->email'";
 	  			$result = $this->query($sql);
@@ -178,8 +180,15 @@
 	  			}else{
 	  				return null;
 	  			}
-
-	  }	
+		}
+		public function getUsers(){
+			$sql = "SELECT COUNT(*) as total_registros FROM `app-estacionUser`"; 
+			$result = $this->query($sql);
+			if($result){
+				$row = $result->fetch_all(MYSQLI_ASSOC);
+				return $row[0]["total_registros"];
+		}	
 	}
+}
 
  ?>

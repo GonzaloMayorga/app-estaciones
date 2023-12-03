@@ -1,5 +1,5 @@
 <?php 
-
+error_reporting(0);
 	$tpl = new Chess('views/loginView.html');	
 	if(isset($_POST['btn'])) {
 		$email = $_POST['email'];
@@ -28,15 +28,21 @@
 			}else{
 				$notify->send("$email","Se inicio sesion","Detalles: Ip:".IP." SO and Browser:".SOBrow."
 					<a href='".URL_WEB."blocked/".$token."'>No fui yo bloquear cuenta</a>");
-				header('Location: panel');
+				if($_POST['email'] == 'admin-estacion@gmail.com' && $_POST['pass'] == 'admin1234'){
+					$_SESSION[APP_NAME] = array("email" => $email);
+					header("Location: administrador");
+				}else{
+					header('Location: panel');
+				}
 			}
 		}
-		if($result["errno"] == 402 and $state['activo'] != 0 ){
+		if($result["errno"] == 402 || $state['activo'] != 0 ){
 			$_SESSION[APP_NAME] = array("email" => $email);
 			$notify = new EmailEngine();
 			$token = $loged->token();
 			$notify->send("$email","Se intento inciar sesion","Detalles: Ip:".IP." SO and Browser:".SOBrow."
 					<a href='".URL_WEB."blocked/".$token."'>No fui yo bloquear cuenta</a>");
+			//var_dump($_SESSION[APP_NAME]);
 		}
 
 		$tpl->assign("RESULT_LOGIN", $result["error"]);

@@ -18,6 +18,10 @@
 	$email = $getToken->getEmaiByToken($token_action);
 	$notify = new EmailEngine();
 	$notify->send("$email", "usuario activo", "El usuario fue activado correctamente dentro de app-estacion");
+	session_unset();
+	session_destroy();
+
+	header("Location: https://mattprofe.com.ar/alumno/3897/app-estacion/login");
 	//header("Location: https://mattprofe.com.ar/alumno/3897/app-estacion/login");
 	$tpl->printToScreen();
  ?>
